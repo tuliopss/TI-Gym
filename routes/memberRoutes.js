@@ -34,6 +34,7 @@ router.get('/', async (req, res) => {
         res.status(500).json({error: error})
     }
 })
+console.log('teste')
 
 
 router.get('/:id', async (req, res) => {
