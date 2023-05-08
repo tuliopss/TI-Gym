@@ -3,6 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
 const app = express();
+
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.engine('html', require('ejs').renderFile);
@@ -20,6 +21,12 @@ mongoose
 .catch((err) => console.log(err));
 
 
+const personRoutes = require('./routes/personRountes');
+app.use('/person', personRoutes);
+
+const membersRoutes = require('./routes/memberRoutes');
+app.use('/member', membersRoutes)
+
 app.get('/', (req, res) => {
     
     res.render('login')
@@ -30,8 +37,7 @@ app.get('/register', (req, res) => {
     res.render('register')
 })
 
-const personRoutes = require('./routes/personRountes');
-app.use('/person', personRoutes);
+
 
 
 
