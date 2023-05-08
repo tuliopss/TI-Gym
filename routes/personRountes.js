@@ -4,7 +4,7 @@ const Person = require('../models/Person');
 
 //CREATE
 router.post('/', async(req, res) => {
-    const {name, salary, approved} = req.body;
+    const {name, salary, department} = req.body;
     if(!name) {
         res.status(422).json({error: 'Nome inexistente, insira um nome.'})
         return
@@ -13,7 +13,7 @@ router.post('/', async(req, res) => {
     const person = {
         name,
         salary,
-        approved
+        department
     }
 
     try {
@@ -58,11 +58,11 @@ router.get('/:id', async(req, res) => {
 //UPDATE
 router.patch('/:id', async(req, res) => {
     const id = req.params.id
-    const {name, salary, approved} = req.body;
+    const {name, salary, department} = req.body;
     const person = {
         name,
         salary,
-        approved
+        department
     }
 
     try {
