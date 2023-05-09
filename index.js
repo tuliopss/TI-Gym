@@ -25,17 +25,15 @@ const personRoutes = require('./routes/personRountes');
 app.use('/person', personRoutes);
 
 const membersRoutes = require('./routes/memberRoutes');
-app.use('/member', membersRoutes)
+app.use('/member', membersRoutes);
 
-app.get('/', (req, res) => {
-    
-    res.render('login')
-    
+const signRoutes = require('./routes/signRoutes');
+app.use('/', signRoutes);
+
+app.get('/home', (req, res) => {
+    res.render('home')
 })
 
-app.get('/register', (req, res) => {
-    res.render('register')
-})
 
 
 
