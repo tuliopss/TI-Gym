@@ -20,9 +20,12 @@ mongoose
 })
 .catch((err) => console.log(err));
 
+app.get('/home', (req, res) => {
+    res.render('home')
+})
 
-const personRoutes = require('./routes/personRountes');
-app.use('/person', personRoutes);
+const instructorRoutes = require('./routes/instructorRountes');
+app.use('/instructor', instructorRoutes);
 
 const membersRoutes = require('./routes/memberRoutes');
 app.use('/member', membersRoutes);
@@ -30,9 +33,7 @@ app.use('/member', membersRoutes);
 const signRoutes = require('./routes/signRoutes');
 app.use('/', signRoutes);
 
-app.get('/home', (req, res) => {
-    res.render('home')
-})
+
 
 
 
