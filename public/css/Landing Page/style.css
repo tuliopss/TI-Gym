@@ -1,0 +1,158 @@
+/* Reset de estilos básicos */
+body,
+h1,
+h2,
+h3,
+p,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+/* Estilo global */
+body {
+  font-family: Arial, sans-serif;
+  color: #000000;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 40px;
+}
+
+/* Estilo do cabeçalho */
+header {
+  background-color: #333;
+  padding: 10px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+}
+
+nav ul li {
+  margin-left: 20px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.logo {
+  width: 65px;
+}
+
+.logo img {
+  width: 100%;
+  margin-right: 10px;
+}
+
+/* Estilo da seção do herói */
+#hero {
+  position: relative;
+  background-image: url("/TI-Gym/public/Fotos/LandingPage/TI.png");
+  background-size: cover;
+  background-position: center;
+  padding: 300px 0;
+  text-align: center;
+  color: #fff;
+}
+
+.hero-text {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.hero-text h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.hero-text p {
+  font-size: 24px;
+  margin-bottom: 40px;
+}
+
+.cta-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #ff4d4d;
+  color: #fff;
+  font-size: 20px;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+/* Estilo das seções */
+section {
+  padding: 80px 0;
+  text-align: center;
+  background-color: darkgoldenrod;
+}
+
+section h2 {
+  font-size: 36px;
+  margin-bottom: 40px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.service {
+  text-align: left;
+}
+
+.service img {
+  max-width: 250px;
+  margin-bottom: 20px;
+}
+
+/* Estilo do formulário de contato */
+form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+input,
+textarea {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+}
+
+button[type="submit"] {
+  padding: 12px 24px;
+  background-color: #ff4d4d;
+  color: #fff;
+  font-size: 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Estilo do rodapé */
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+}

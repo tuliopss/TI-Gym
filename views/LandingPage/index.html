@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Landing Page</title>
+    <link rel="stylesheet" href="/TI-Gym/public/css/Landing Page/style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <img
+          src="/TI-Gym/public/Fotos/LandingPage/LogoTIGYM.png"
+          alt="Logo da academia"
+        />
+      </div>
+      <nav>
+        <ul>
+          <li><a href="/TI-Gym/views/Login/login.html">Login</a></li>
+          <li><a href="#about">Sobre</a></li>
+          <li><a href="#services">Serviços</a></li>
+          <li><a href="#contact">Contato</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section id="hero">
+      <div class="hero-text">
+        <a href="/TI-Gym/views/Register/register.html" class="cta-btn"
+          >Comece agora</a
+        >
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <h2>Sobre Nós</h2>
+        <p>
+          Somos uma academia comprometida em ajudar nossos clientes a alcançar
+          seus objetivos de saúde e condicionamento físico. Com uma equipe de
+          instrutores qualificados e uma ampla variedade de equipamentos
+          modernos, estamos prontos para oferecer uma experiência excepcional de
+          treinamento.
+        </p>
+        <p>
+          Nossa missão é inspirar e motivar nossos membros a adotarem um estilo
+          de vida ativo e saudável. Oferecemos uma variedade de programas e
+          aulas, desde treinamento funcional até ioga e pilates, para atender às
+          necessidades e interesses de todos os nossos clientes.
+        </p>
+        <p>
+          Na nossa academia, acreditamos que o bem-estar físico está diretamente
+          ligado ao bem-estar mental. Por isso, criamos um ambiente acolhedor e
+          amigável, onde cada pessoa se sinta bem-vinda e motivada a alcançar
+          seus objetivos, seja em busca de melhorar a forma física, perder peso
+          ou simplesmente manter um estilo de vida saudável.
+        </p>
+        <p>
+          Junte-se a nós hoje mesmo e comece sua jornada rumo a uma vida mais
+          saudável e feliz!
+        </p>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <h2>Nossos Serviços</h2>
+        <div class="services-grid">
+          <div class="service">
+            <img
+              src="/TI-Gym/public/Fotos/LandingPage/Equips.jpg"
+              alt="Equipamentos de Academia"
+            />
+            <h3>Equipamentos Modernos</h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
+              euismod neque nec dolor consectetur.
+            </p>
+          </div>
+          <div class="service">
+            <img
+              src="/TI-Gym/public/Fotos/LandingPage/Training.jpg"
+              alt="Treinamento Personalizado"
+            />
+            <h3>Treinamento Personalizado</h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
+              euismod neque nec dolor consectetur.
+            </p>
+          </div>
+          <div class="service">
+            <img
+              src="/TI-Gym/public/Fotos/LandingPage/group.jpg"
+              alt="Aulas em Grupo"
+            />
+            <h3>Aulas em Grupo</h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
+              euismod neque nec dolor consectetur.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <h2>Entre em Contato</h2>
+        <form id="contact-form" action="submit-form.php" method="POST">
+          <input type="text" name="name" placeholder="Seu nome" required />
+          <input type="email" name="email" placeholder="Seu e-mail" required />
+          <textarea
+            name="message"
+            placeholder="Sua mensagem"
+            required
+          ></textarea>
+          <button type="submit">Enviar</button>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2023 TI GYM. Todos os direitos reservados.</p>
+    </footer>
+  </body>
+</html>
