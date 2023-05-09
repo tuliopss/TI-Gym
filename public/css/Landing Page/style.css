@@ -58,7 +58,7 @@ nav ul li a {
 /* Estilo da seção do herói */
 #hero {
   position: relative;
-  background-image: url("/TI-Gym/public/Fotos/LandingPage/TI.png");
+  background-image: url("/Fotos/LandingPage/TI.png");
   background-size: cover;
   background-position: center;
   padding: 300px 0;
@@ -156,3 +156,4 @@ footer {
   padding: 20px 0;
   text-align: center;
 }
+

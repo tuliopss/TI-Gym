@@ -11,12 +11,12 @@ app.set('views', path.join(__dirname, '/views'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 router.get('/', (req, res) => {
-    res.render('login')
+    res.render('./Login/login')
     
 })
 
 router.get('/register', (req, res) => {
-    res.render('register')
+    res.render('./Register/register')
 })
 
 router.post('/register', async (req, res) => {
@@ -38,9 +38,6 @@ router.post('/register', async (req, res) => {
         return;
     }
 
-
-   
-    
     try {
         await User.insertMany([user]) //Criando dados
         //res.status(201).json({msg: 'Conta criada com sucesso!'})
@@ -58,7 +55,7 @@ router.post('/', async(req, res) => {
         if(checkLogin.password === req.body.password) {
 
             console.log('Login realizado')
-            res.render('home')
+            res.render('./LandingPage/index')
 
         } else {
             res.send('Wrong password')

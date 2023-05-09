@@ -21,7 +21,7 @@ mongoose
 .catch((err) => console.log(err));
 
 app.get('/home', (req, res) => {
-    res.render('home')
+    res.render('./LandingPage/index')
 })
 
 const instructorRoutes = require('./routes/instructorRountes');
