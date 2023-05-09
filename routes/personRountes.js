@@ -9,7 +9,6 @@ router.post('/', async(req, res) => {
         res.status(422).json({error: 'Nome inexistente, insira um nome.'})
         return
     }
-
     const person = {
         name,
         salary,
