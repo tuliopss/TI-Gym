@@ -20,9 +20,11 @@ mongoose
 })
 .catch((err) => console.log(err));
 
-app.get('/home', (req, res) => {
+app.get('/', (req, res) => {
     res.render('./LandingPage/index')
 })
+
+
 
 const instructorRoutes = require('./routes/instructorRountes');
 app.use('/instructor', instructorRoutes);

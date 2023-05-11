@@ -112,3 +112,8 @@ button {
     font-size: 12px;
   }
 }
+
+.alert-message {
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+}

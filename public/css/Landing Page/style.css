@@ -46,6 +46,11 @@ nav ul li a {
   text-decoration: none;
 }
 
+nav ul li a:hover {
+  
+  color: #e2be1a;
+}
+
 .logo {
   width: 65px;
 }
