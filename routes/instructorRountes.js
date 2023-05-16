@@ -29,7 +29,7 @@ router.get('/', async (req, res) => {
     try {
         const instructors = await Instructor.find();
 
-        res.status(200).json(people)
+        res.status(200).json(instructors)
 
     } catch(error) {
         res.status(500).json({error: error})
@@ -71,7 +71,7 @@ router.patch('/:id', async(req, res) => {
             res.status(422).json({msg: "Usuário não encontrado."})
             return
         }
-
+        
         res.status(200).json(instructor);
 
     } catch (error) {

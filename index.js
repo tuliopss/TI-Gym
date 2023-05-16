@@ -23,6 +23,9 @@ mongoose
 app.get('/', (req, res) => {
     res.render('./LandingPage/index')
 })
+app.get('/dashboard', (req, res) => {
+    res.render('index')
+})
 
 
 

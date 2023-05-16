@@ -11,7 +11,6 @@ app.set('views', path.join(__dirname, '/views'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 router.get('/login', (req, res) => {
-
     res.render('./Login/login', { alertLogin: false })
     
 })
@@ -32,7 +31,6 @@ router.post('/register', async (req, res) => {
     }
 
     if(!username || !password) {
-        //res.status(422).json({error: "Preencha todos os campos."});
         res.render('./Register/register', { alertEmpty: true } )
 
         return;

@@ -9,7 +9,7 @@ router.post('/', async(req, res) => {
         res.status(422).json({error: 'Nome inexistente, insira um nome.'})
         return
     }
-    
+
     const member = {
         name,
         age,
@@ -18,7 +18,8 @@ router.post('/', async(req, res) => {
 
     try {
         await Member.create(member) //Criando dados
-        res.status(201).json({msg: 'Pessoa inserida no sistema com sucesso!'})
+        //res.status(201).json({msg: 'Pessoa inserida no sistema com sucesso!'})
+        res.redirect('/dashboard')
 
     } catch(error) {
         res.status(500).json({error: error})
