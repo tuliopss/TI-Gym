@@ -4,22 +4,27 @@ const Member = require('../models/Member');
 
 //Create a client
 router.post('/', async(req, res) => {
-    const {name, age, workout} = req.body;
+    const {name, age, nameEx, setEx, repEx} = req.body;
+    const workout = {
+        name: nameEx,
+        set: setEx,
+        rep: repEx
+    }
+
     if(!name) {
         res.status(422).json({error: 'Nome inexistente, insira um nome.'})
         return
     }
-
     const member = {
         name,
         age,
         workout
     }
-
     try {
         await Member.create(member) //Criando dados
         //res.status(201).json({msg: 'Pessoa inserida no sistema com sucesso!'})
         res.redirect('/dashboard')
+        return;
 
     } catch(error) {
         res.status(500).json({error: error})
@@ -53,6 +58,25 @@ router.get('/:id', async (req, res) => {
         res.status(500).json({error: error})
     }
 })
+
+  
+
+
+
+router.get('/:id/workout', async(req,res) => {
+    const id = req.params.id
+
+    try {
+        const memberWorkout = await Member.findById(id).select('workout')
+        res.status(200).json(memberWorkout.workout)
+
+    } catch(error) {
+        res.status(500).json({error: error})
+    }
+})
+
+
+  
 
 //Update member
 router.patch('/:id', async(req, res) => {

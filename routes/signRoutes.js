@@ -72,7 +72,8 @@ router.post('/login', async(req, res) => {
 
         if(checkLogin.password === req.body.password) {
             console.log('Login realizado')
-            res.render('./LandingPage/index')
+            //res.render('./LandingPage/index')
+            res.redirect('/dashboard')
 
         } else {
             res.render('./Login/login', { alertLogin: true });
