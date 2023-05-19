@@ -23,8 +23,11 @@ mongoose
 app.get('/', (req, res) => {
     res.render('./LandingPage/index')
 })
-app.get('/dashboard', (req, res) => {
-    res.render('index')
+app.get('/dashboardMember', (req, res) => {
+    res.render('./DashboardMember/index')
+})
+app.get('/dashboardInstructor', (req, res) => {
+    res.render('./DashboardInstructor/index')
 })
 
 

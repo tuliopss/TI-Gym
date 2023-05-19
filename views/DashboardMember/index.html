@@ -102,7 +102,7 @@
 
     
     <!-- Custom styles for this template -->
-    <link href="/css/dashboard.css" rel="stylesheet">
+    <link href="/css/DashboardMember/dashboard.css" rel="stylesheet">
   </head>
   <body>
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -247,7 +247,7 @@
       </div>
     </nav>
 
-    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <!-- <h1 class="h2">Dashboard</h1> -->
         
@@ -258,41 +258,46 @@
       <div class="popup" id="myPopupAdd">
         <div class="modal-content">
           <span class="close" onclick="closePopupAdd()">&times;</span>
+
           <form action="/member" method="post">
-              <div class="mb-3">
-                <label for="exampleInputMember1" class="form-label">Nome do aluno</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="exampleInputUsername"
-                  name="name"
-                  autocomplete="off"
-                />
-              </div>
-              <div class="mb-3">
-                <label for="exampleInputAge1" class="form-label">Idade</label>
-                <input
-                  type="number"
-                  class="form-control"
-                  id="exampleInputAge1"
-                  name="age"
-                  autocomplete="off"
-                />
-              </div>
-                <label for="exerciseName">Nome do exercício:</label>
-                <input type="text" id="exerciseName" name="nameEx" required>
+              <label for="exerciseName" class="form-label">Nome do exercício:</label>
+              <input type="text" class="form-control" id="exerciseName" name="workout" required>
 
-                <label for="exerciseSets">Número de séries:</label>
-                <input type="number" id="exerciseSets" name="setEx" required>
+              <label for="exerciseSets" class="form-label">Número de séries:</label>
+              <input type="number" class="form-control" id="exerciseSets" name="workout" required>
 
-                <label for="exerciseReps">Número de repetições:</label>
-                <input type="number" id="exerciseReps" name="repEx" required>
+              <label for="exerciseReps" class="form-label">Número de repetições:</label>
+              <input type="number" class="form-control" id="exerciseReps" name="workout" required>
+              <button class="btn btn-primary" type="button" id="addExercise" style="margin-bottom: 30px;">Add exercise</button>
+          <div class="mb-3">
+            <label for="exampleInputMember1" class="form-label">Nome do aluno</label>
+            <input
+              type="text"
+              class="form-control"
+              id="exampleInputUsername"
+              name="name"
+              autocomplete="off"
+              required
+              />
+          </div>
+            <div class="mb-3">
+              <label for="exampleInputAge1" class="form-label">Idade</label>
+              <input
+                type="number"
+                class="form-control"
+                id="exampleInputAge1"
+                name="age"
+                autocomplete="off"
+                required
+              />
+            </div>
 
-                
-              <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
+            <button type="submit" class="btn btn-primary">Finish</button>
+          </form>
+       
         </div>
       </div>
+ 
 
       <!-- MODAL TREINO -->
       <div class="popup" id="myPopupWorkout">
@@ -303,7 +308,7 @@
         </div>
       </div>
 
-<a href="http://localhost:3000/login" target="_blank">Teste</a>
+
       <div class="table-responsive">
         
         <table class="table table-striped table-sm">
@@ -312,10 +317,7 @@
               <button type="button" class="btn btn-sm btn-outline-secondary" id="addBtn" onclick="openPopupAdd()">Adicionar</button>
               <button type="button" class="btn btn-sm btn-outline-secondary">Editar</button>
             </div>
-            <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar align-text-bottom" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-              This week
-            </button>
+            
           </div>
           <thead>
             <tr>
@@ -323,7 +325,7 @@
               <th scope="col">Aluno</th>
               <th scope="col">Idade</th>
               <th scope="col">Id</th>
-              <th scope="col">Treino</th>
+              <th scope="col" id="col-workout">Treino</th>
             </tr>
           </thead>
           <tbody id="getMember">
@@ -338,6 +340,6 @@
 
     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.1/dist/chart.umd.min.js" integrity="sha384-gdQErvCNWvHQZj6XZM0dNsAoY4v+j5P1XDpNkcM3HJG1Yx04ecqIHk7+4VBOCHOG" crossorigin="anonymous"></script><script src="/js/dashboard.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.1/dist/chart.umd.min.js" integrity="sha384-gdQErvCNWvHQZj6XZM0dNsAoY4v+j5P1XDpNkcM3HJG1Yx04ecqIHk7+4VBOCHOG" crossorigin="anonymous"></script><script src="/js/dashboardMemberJs/dashboardMember.js"></script>
   </body>
 </html>

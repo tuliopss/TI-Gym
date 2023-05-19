@@ -17,8 +17,9 @@ router.post('/', async(req, res) => {
 
     try {
         await Instructor.create(instructor) //Criando dados
-        res.status(201).json({msg: 'Pessoa inserida no sistema com sucesso!'})
-
+        // res.status(201).json({msg: 'Pessoa inserida no sistema com sucesso!'})
+        console.log('Instructor inserido com sucesso');
+        res.redirect('/dashboardInstructor')
     } catch(error) {
         res.status(500).json({error: error})
     }

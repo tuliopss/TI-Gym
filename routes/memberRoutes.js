@@ -3,34 +3,57 @@ const router = express.Router();
 const Member = require('../models/Member');
 
 //Create a client
-router.post('/', async(req, res) => {
-    const {name, age, nameEx, setEx, repEx} = req.body;
-    const workout = {
-        name: nameEx,
-        set: setEx,
-        rep: repEx
-    }
+    // router.post('/', async(req, res) => {
+    //     const {name, age, nameEx, setEx, repEx} = req.body;
+    //     const workout = {
+    //         name: nameEx,
+    //         set: setEx,
+    //         rep: repEx
+    //     }
 
-    if(!name) {
-        res.status(422).json({error: 'Nome inexistente, insira um nome.'})
-        return
-    }
-    const member = {
-        name,
-        age,
-        workout
-    }
-    try {
-        await Member.create(member) //Criando dados
-        //res.status(201).json({msg: 'Pessoa inserida no sistema com sucesso!'})
-        res.redirect('/dashboard')
-        return;
+    //     if(!name) {
+    //         res.status(422).json({error: 'Nome inexistente, insira um nome.'})
+    //         return
+    //     }
+    //     const member = {
+    //         name,
+    //         age,
+    //         workout: [workout]
+    //     }
+    //     try {
+    //         await Member.create(member) //Criando dados
+    //         // res.status(201).json({msg: 'Pessoa inserida no sistema com sucesso!'})
+    //         res.redirect('/dashboard')
+    //         return;
 
-    } catch(error) {
-        res.status(500).json({error: error})
-    }
-})
+    //     } catch(error) {
+    //         res.status(500).json({error: error})
+    //     }
+    // })
+    router.post('/', async(req, res) => {
+        const {name, age, workout} = req.body;
+       
 
+            if(!name) {
+                res.status(422).json({error: 'Nome inexistente, insira um nome.'})
+                return
+            }
+        const member = {
+            name,
+            age,
+            workout
+        }
+        try {
+            await Member.create(member) //Criando dados
+            //res.status(201).json({msg: 'Pessoa inserida no sistema com sucesso!'})
+            res.redirect('/dashboard')
+            return;
+    
+        } catch(error) {
+            res.status(500).json({error: error})
+        }
+    })
+    
 //Read client
 router.get('/', async (req, res) => {
     try {
@@ -101,8 +124,6 @@ router.patch('/:id', async(req, res) => {
         res.status(500).json({error: error})
     }
 })
-
-
 
 //Delete member
 router.delete('/:id', async (req, res) => {

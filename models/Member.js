@@ -1,10 +1,9 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-
 const exercisesSchema = new Schema({
-    name: String,
-    set: Number,
-    rep: Number
+    nameEx: String,
+    setEx: Number,
+    repEx: Number
 })
 
 const memberSchema = new Schema({
@@ -12,6 +11,15 @@ const memberSchema = new Schema({
     age: Number,
     workout: [exercisesSchema],
 })
+// const { ExerciseSchema } = require('./Exercise');
+
+// const MemberSchema = new mongoose.Schema({
+//     name: String,
+//     age: Number,
+//     exercises: [ExerciseSchema]
+// });
 
 const Member = mongoose.model('Member', memberSchema);
-module.exports = Member
+
+module.exports = Member;
+
