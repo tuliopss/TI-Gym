@@ -1,0 +1,134 @@
+<%- include('layout/header') %>
+
+<h2>Edit user (<%= user.name %>) </h2>
+  <div class="popup" id="popupEdit">
+        <div class="modal-content">
+
+        
+          <form action="/instructor/edit/<%= user._id %>" id="formUpdateInstructor" method="post">
+       
+          <div class="mb-3">
+            <label for="exampleInputMember1" class="form-label">Nome do instrutor</label>
+            <input
+              type="text"
+              class="form-control"
+              id="nameInstructor"
+              name="name"
+              autocomplete="off"
+              required
+              value="<%= user.name %>"
+              />
+          </div>
+            <div class="mb-3">
+              <label for="exampleInputAge1" class="form-label">Salário</label>
+              <input
+                type="number"
+                class="form-control"
+                id="salaryInstructor"
+                name="salary"
+                autocomplete="off"
+                required
+                value="<%= user.salary %>"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputAge1" class="form-label">Departamento</label>
+              <input
+                type="text"
+                class="form-control"
+                id="departmentInstructor"
+                name="department"
+                autocomplete="off"
+                required
+                value="<%= user.department %>"
+              />
+            </div>
+
+            <input type="submit" name="submit" value="Edit user" class="btn btn-primary" id="editBtn"></input>
+          </form>
+        
+       
+        </div>
+      </div>
+    
+      <!-- <div class="popup" id="popupEdit">
+        <div class="modal-content">
+
+            
+          <form action="/instructor/edit" id="formUpdateInstructor" method="patch">
+          <input type="hidden" name="_method" value="PATCH">
+       
+          <div class="mb-3">
+            <label for="exampleInputMember1" class="form-label">Nome do instrutor</label>
+            <input
+              type="text"
+              class="form-control"
+              id="nameInstructor"
+              name="name"
+              autocomplete="off"
+              required
+              />
+          </div>
+            <div class="mb-3">
+              <label for="exampleInputAge1" class="form-label">Salário</label>
+              <input
+                type="number"
+                class="form-control"
+                id="salaryInstructor"
+                name="salary"
+                autocomplete="off"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputAge1" class="form-label">Departamento</label>
+              <input
+                type="text"
+                class="form-control"
+                id="departmentInstructor"
+                name="department"
+                autocomplete="off"
+                required
+              />
+            </div>
+
+            <button type="submit" class="btn btn-primary" id="editBtn">Editar</button>
+          </form>
+        
+       
+        </div>
+      </div>
+    </div>
+  </div> -->
+  
+
+
+<%- include('layout/footer') %> 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -7,7 +7,8 @@ const app = express();
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.engine('html', require('ejs').renderFile);
-app.set('view engine', 'html');
+//app.set('view engine', 'html');
+app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/index.js', express.static(path.join(__dirname, 'public/index.js'), {type: 'application/javascript'}));
@@ -30,7 +31,9 @@ app.get('/dashboardInstructor', (req, res) => {
     res.render('./DashboardInstructor/index')
 })
 
-
+// app.get('/editEJS', (req, res) => {
+//     res.render('./EditView/editview', { title: 'Testee' })
+// })
 
 const instructorRoutes = require('./routes/instructorRountes');
 app.use('/instructor', instructorRoutes);
@@ -40,6 +43,7 @@ app.use('/member', membersRoutes);
 
 const signRoutes = require('./routes/signRoutes');
 app.use('/', signRoutes);
+
 
 
 

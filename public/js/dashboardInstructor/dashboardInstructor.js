@@ -1,3 +1,4 @@
+//            <td><button class='btn btn-sm btn-outline-secondary' onclick='openPopupEdit("${instructor._id}")' style='font-size:100px height: 10px'>&#9997;</button></td>    
 
 const url = 'http://localhost:3000/instructor';
 
@@ -11,13 +12,13 @@ const showAllInstructors = () => {
             <td>${instructor.salary}</td>
             <td>${instructor.department}</td>
             <td>${instructor._id}</td>
-            <td><button class='btn btn-sm btn-outline-secondary' onclick='openPopupEdit("${instructor._id}")' style='font-size:100px height: 10px'>&#9997;</button></td>    
+            <td><a class='btn btn-sm btn-outline-secondary' href='http://localhost:3000/instructor/edit/${instructor._id}' style='font-size:100px height: 10px'>&#9997;</a></td>    
+
             <td><button class='btn btn-sm btn-outline-secondary' onclick='removeInstructor("${instructor._id}")' style='font-size:100px height: 10px'>X</button></td>    
-            
+
             `
           )
           }).join('')
-          console.log(response);
           
           const editButtons = document.getElementsByClassName('editButton');
           for (let i = 0; i < editButtons.length; i++) {
@@ -41,6 +42,7 @@ const openPopupEdit = (instructorId) => {
     let departmentInstructor = document.getElementById('departmentInstructor')
 
     popup.style.display = "block";
+    
     axios.get(`${url}/${instructorId}`)
     .then((response) => {
         const instructor = response.data;
@@ -48,38 +50,50 @@ const openPopupEdit = (instructorId) => {
         nameInstructor.value = instructor.name
         salaryInstructor.value = instructor.salary
         departmentInstructor.value = instructor.department
-    })
+
+        let newName = document.getElementById("nameInstructor").value;
+        let newSalary = document.getElementById("salaryInstructor").value;
+        let newDepartment = document.getElementById("departmentInstructor").value;
+
+        const updateInstructor = {
+          newName,
+          newSalary,
+          newDepartment
+        };
+        
+        // try {
+        //   // axios.patch(`${url}/edit/${instructorId}`, updateInstructor)
+        //   // .then()
+        //   if (response.status === 200) {
+        //     console.log('ID do membro :'+response.data.name+'' +response.data._id);
+        //     //window.location.href = 'http://localhost:3000/instructor/' + response.data._id
+        //   } else {
+        //     console.log('Erro ao atualizar membro:', response.data);
+        //   }
+        // //updatedInstructor(instructorId)
+        // } catch (error) {
+          
+        // }
+
+      })
 }
 
+//  <%= instructor._id %>
 const updatedInstructor = (instructorId) => {
-    let newName = document.getElementById("nameInstructor").value;
-    let newSalary = document.getElementById("salaryInstructor").value;
-    let newDepartment = document.getElementById("departmentInstructor").value;
-
-    const updateInstructor = {
-        newName,
-        newSalary,
-        newDepartment
-    }
-    axios.patch(`${url}/${instructorId}`, updateInstructor)
-    .then('Atualização realizada')
+    
 }
 
-const editBtn = document.getElementById('editBtn');
-editBtn.onsubmit = (event) => {
-    event.preventDefault()
-    updatedInstructor(instructorId)
-}
 
 const removeInstructor = (instructorId) => {
-     axios.get(`${url}/${instructorId}`)
-    .then((response) => {
-        const instructor = response.data;
-        axios.delete(`${url}/${instructorId}`, instructor)
-        location.reload()
-        
-    })
+  axios.get(`${url}/${instructorId}`)
+ .then((response) => {
+     const instructor = response.data;
+     axios.delete(`${url}/${instructorId}`, instructor)
+     location.reload()
+     
+ })
 }
+
 
 
 

@@ -125,6 +125,9 @@ router.patch('/:id', async(req, res) => {
     }
 })
 
+
+
+
 //Delete member
 router.delete('/:id', async (req, res) => {
     const id = req.params.id;
