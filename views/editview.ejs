@@ -1,10 +1,12 @@
 <%- include('layout/header') %>
 
-<h2>Edit user (<%= user.name %>) </h2>
+<div class="container">
+  <img src="/Fotos/Login/LogoTIGYM.png" alt="Logo" class="logo" />
+
   <div class="popup" id="popupEdit">
         <div class="modal-content">
 
-        
+          <h2 class="atual-user">Edit user (<%= user.name %>) </h2>
           <form action="/instructor/edit/<%= user._id %>" id="formUpdateInstructor" method="post">
        
           <div class="mb-3">
@@ -50,6 +52,7 @@
        
         </div>
       </div>
+    </div>
     
       <!-- <div class="popup" id="popupEdit">
         <div class="modal-content">

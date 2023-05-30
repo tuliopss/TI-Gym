@@ -1,7 +1,5 @@
-//            <td><button class='btn btn-sm btn-outline-secondary' onclick='openPopupEdit("${instructor._id}")' style='font-size:100px height: 10px'>&#9997;</button></td>    
-
 const url = 'http://localhost:3000/instructor';
-
+//<td>${instructor._id}</td>
 const showAllInstructors = () => {
     axios.get(url)
     .then((response) => {
@@ -11,9 +9,8 @@ const showAllInstructors = () => {
             <td>${instructor.name}</td>
             <td>${instructor.salary}</td>
             <td>${instructor.department}</td>
-            <td>${instructor._id}</td>
+            
             <td><a class='btn btn-sm btn-outline-secondary' href='http://localhost:3000/instructor/edit/${instructor._id}' style='font-size:100px height: 10px'>&#9997;</a></td>    
-
             <td><button class='btn btn-sm btn-outline-secondary' onclick='removeInstructor("${instructor._id}")' style='font-size:100px height: 10px'>X</button></td>    
 
             `
@@ -93,10 +90,6 @@ const removeInstructor = (instructorId) => {
      
  })
 }
-
-
-
-
 
 const closePopupEdit = () => {
     let popup = document.getElementById("popupEdit");

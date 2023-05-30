@@ -12,7 +12,7 @@ const showAllMembers = () => {
         <td>${aluno.age}</td>
         <td>${aluno._id}</td>
         <td><a href= '${url}/${aluno._id}/workout'>View workout</a></td>
-        
+        <td><button class='btn btn-sm btn-outline-secondary'onclick='removeMember("${aluno._id}")' style='font-size:100px height: 10px'>X</button></td>
         
         `
       )
@@ -57,7 +57,15 @@ const postExercise = (e) => {
   .catch(error => console.log('erro'+error))
 }
 
+const removeMember = (alunoId) => {
+  axios.get(`${url}/${alunoId}`)
+  .then((response) => {
+    const aluno = response.data;
+    axios.delete(`${url}/${alunoId}`, aluno);
+    location.reload()
+  })
 
+}
 
 btnAddExercise.addEventListener('click', postExercise)
 

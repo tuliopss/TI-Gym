@@ -37,42 +37,6 @@ router.get('/', async (req, res) => {
     }
 })
 
-// router.get('/', async(req, res) => {
-    
-//     const id = req.query.id;
-//         try {
-//             const instructor = await Instructor.findOne({_id: id});
-
-//             if(!instructor) {
-//                 res.status(422).json({msg: "Usuário não encontrado."})
-//                 return
-//             }
-//             res.status(200).json(instructor)
-
-//         } catch(error) {
-//             res.status(500).json({error: error})
-
-//         }
-// })
-// router.get('/edit/:id', (req, res) => {
-//     const id = req.params.id
-//     Instructor.findById(id, (err, user) => {
-//         if(err) {
-//             res.redirect('/dashboardInstructor')
-//         } else {
-//             if(user == null) {
-//                 res.redirect('/dashboardInstructor')
-//             } else {
-//                 res.render('editview', {
-//                     title: 'Edit user',
-//                     user: Instructor
-//                 })
-//             }
-//         }
-//     })
-//     //res.render('./editview', { title: 'Testee' })
-
-// })
 router.get('/edit/:id', async (req, res) => {
     const id = req.params.id;
     try {
@@ -90,25 +54,6 @@ router.get('/edit/:id', async (req, res) => {
     }
 });
 
-// router.post('/edit/:id',  async(req, res) => {
-//     const id = req.params.id;
-//     try {
-//        const updateInstructor = await Instructor.findByIdAndUpdate(id, {
-//             name: req.body.name,
-//             salary: req.body.salary,
-//             department: req.body.department
-//         }, (err, result) => {
-//             if(err) {
-//                 res.json({msg: err.message})
-//             } else {
-//                 res.redirect('/dashboardInstructor')
-//             }
-//         })
-//     } catch (error) {
-//         res.status(500).json({ error: error.message });
-//     }
-    
-// })
 router.post('/edit/:id', async (req, res) => {
     const id = req.params.id;
     try {
@@ -128,11 +73,6 @@ router.post('/edit/:id', async (req, res) => {
       res.status(500).json({ error: error.message });
     }
   });
-  
-
-
-
-
 
 router.get('/:id', async (req, res) => {
     const id = req.params.id;
