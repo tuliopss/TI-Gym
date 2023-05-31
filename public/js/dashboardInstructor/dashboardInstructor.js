@@ -39,16 +39,10 @@ const removeInstructor = (instructorId) => {
 }
 
 
-
 const openPopupAdd = () => {
     let popup = document.getElementById("myPopupAdd");
     popup.style.display = "block";
 }
-
-
-//  <%= instructor._id %>
-
-
 
 
 

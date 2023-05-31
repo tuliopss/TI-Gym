@@ -9,7 +9,6 @@ const showAllMembers = () => {
         `<tr>
         <td>${aluno.name}</td>
         <td>${aluno.age}</td>
-        <td>${aluno._id}</td>
         <td>${aluno.objective}</td>
         <td><a class='btn btn-sm btn-outline-secondary' href='http://localhost:3000/member/edit/${aluno._id}' style='font-size:100px height: 10px'>&#9997;</a></td>    
         <td><button class='btn btn-sm btn-outline-secondary'onclick='removeMember("${aluno._id}")' style='font-size:100px height: 10px'>X</button></td>
