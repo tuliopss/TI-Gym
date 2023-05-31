@@ -1,5 +1,4 @@
 const url = 'http://localhost:3000/member';
-const btnAddExercise = document.getElementById('addExercise')
 
 const showAllMembers = () => {      
     axios.get(url)
@@ -11,13 +10,20 @@ const showAllMembers = () => {
         <td>${aluno.name}</td>
         <td>${aluno.age}</td>
         <td>${aluno._id}</td>
-        <td><a href= '${url}/${aluno._id}/workout'>View workout</a></td>
+        <td>${aluno.objective}</td>
+        <td><a class='btn btn-sm btn-outline-secondary' href='http://localhost:3000/member/edit/${aluno._id}' style='font-size:100px height: 10px'>&#9997;</a></td>    
         <td><button class='btn btn-sm btn-outline-secondary'onclick='removeMember("${aluno._id}")' style='font-size:100px height: 10px'>X</button></td>
         
         `
       )
       }).join('')
-      console.log(response);
+      const editButtons = document.getElementsByClassName('editButton');
+          for (let i = 0; i < editButtons.length; i++) {
+            editButtons[i].addEventListener('click', () => {
+              const memberId = response.data[i]._id;
+              openPopupEdit(memberId);
+            });
+          }
     })
    
    
@@ -25,37 +31,6 @@ const showAllMembers = () => {
 }
 showAllMembers();
 
-let workout = []
-const postExercise = (e) => {
-  e.preventDefault()
-
-  let exerciseName = document.getElementById('exerciseName').value
-  let exerciseSet = document.getElementById('exerciseSets').value
-  let exerciseRep = document.getElementById('exerciseReps').value
-  let userName = document.getElementById('exampleInputUsername').value
-  let userAge = document.getElementById('exampleInputAge1').value
-
-  console.log(exerciseName, exerciseSet, exerciseRep);
-  
-  const exercise = {
-    exerciseName,
-    exerciseSet,
-    exerciseRep
-  }
-  
-  workout.push(exercise)
-  console.log(exercise);
-  console.log(workout)
-
-  const newMember = {
-    userName,
-    userAge,
-    workout : workout || []
-  }
-  axios.post(url, newMember)
-  .then(response => console.log(response))
-  .catch(error => console.log('erro'+error))
-}
 
 const removeMember = (alunoId) => {
   axios.get(`${url}/${alunoId}`)
@@ -66,51 +41,6 @@ const removeMember = (alunoId) => {
   })
 
 }
-
-btnAddExercise.addEventListener('click', postExercise)
-
-
-
-
-// const showWorkout = () => {
-//   //Requisiçao p pegar ID
-//   axios.get(url)
-//   .then((response) => {
-//     response.data.map((member) => {
-//       const memberId = member._id;
-    
-//       //Requisicao p pegar o workout baseado no id
-//       axios.get(`${url}/${memberId}/workout`)
-//       .then((response) => {
-        
-//         document.getElementById('popupWorkout').innerHTML = response.data.map((exercise) => {
-//           console.log(`click no id ${exercise}`);
-
-//           return (
-//             `
-//             <span>Exercicio</span
-//             <p>${exercise.name}</p>
-//              <span>Séries</span
-//              <p>${exercise.set}</p>
-//              <span>Repetições</span
-//              <p>${exercise.rep}</p>
-//              <hr>
-             
-//             `
-//           )
-        
-//           }).join('')
-          
-//         })  
-//     })
-// })
-
-// }
-
-
-    
-  
-  
 
 
 //http://localhost:3000/member/${aluno._id}/workout

@@ -1,15 +1,11 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const exercisesSchema = new Schema({
-    nameEx: String,
-    setEx: Number,
-    repEx: Number
-})
+
 
 const memberSchema = new Schema({
     name: String,
     age: Number,
-    workout: [exercisesSchema],
+    objective: String,
 })
 
 const Member = mongoose.model('Member', memberSchema);

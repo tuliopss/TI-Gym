@@ -1,0 +1,57 @@
+<%- include('layout/header') %>
+<div class="container">
+    <img src="/Fotos/Login/LogoTIGYM.png" alt="Logo" class="logo" />
+  
+    <div class="popup" id="popupEdit">
+          <div class="modal-content">
+  
+            <h2 class="atual-user">Edit user (<%= user.name %>) </h2>
+            <form action="/member/edit/<%= user._id %>" id="formUpdateMember" method="post">
+         
+            <div class="mb-3">
+              <label for="exampleInputMember1" class="form-label">Nome do aluno</label>
+              <input
+                type="text"
+                class="form-control"
+                id="nameMember"
+                name="name"
+                autocomplete="off"
+                required
+                value="<%= user.name %>"
+                />
+            </div>
+              <div class="mb-3">
+                <label for="exampleInputAge1" class="form-label">Idade</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="ageMember"
+                  name="age"
+                  autocomplete="off"
+                  required
+                  value="<%= user.age %>"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputAge1" class="form-label">Objetivo</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="objectiveMember"
+                  name="objective"
+                  autocomplete="off"
+                  required
+                  value="<%= user.objective %>"
+                />
+              </div>
+  
+              <input type="submit" name="submit" value="Edit user" class="btn btn-primary" id="editBtn"></input>
+            </form>
+          
+         
+          </div>
+        </div>
+      </div>
+ 
+  <%- include('layout/footer') %> 
+   

@@ -31,9 +31,8 @@ const Member = require('../models/Member');
     //     }
     // })
     router.post('/', async(req, res) => {
-        const {name, age, workout} = req.body;
+        const {name, age, objective} = req.body;
        
-
             if(!name) {
                 res.status(422).json({error: 'Nome inexistente, insira um nome.'})
                 return
@@ -41,12 +40,12 @@ const Member = require('../models/Member');
         const member = {
             name,
             age,
-            workout
+            objective
         }
         try {
             await Member.create(member) //Criando dados
             //res.status(201).json({msg: 'Pessoa inserida no sistema com sucesso!'})
-            res.redirect('/dashboard')
+            res.redirect('/dashboardMember')
             return;
     
         } catch(error) {
@@ -63,8 +62,42 @@ router.get('/', async (req, res) => {
         res.status(500).json({error: error})
     }
 })
-console.log('teste')
+router.get('/edit/:id', async (req, res) => {
+    const id = req.params.id;
+    try {
+        const user = await Member.findById(id);
+        if (user == null) {
+            res.redirect('/dashboardMember');
+        } else {
+            res.render('editviewmember', {
+                title: 'Edit user',
+                user: user
+            });
+        }
+    } catch (err) {
+        res.redirect('/dashboardMember');
+    }
+});
 
+router.post('/edit/:id', async (req, res) => {
+    const id = req.params.id;
+    try {
+      const updatedMember = await Member.findByIdAndUpdate(id, {
+        name: req.body.name,
+        age: req.body.age,
+        objective: req.body.objective
+      });
+  
+      if (!updatedMember) {
+        res.status(422).json({ msg: "Usuário não encontrado." });
+        return;
+      }
+  
+      res.redirect('/dashboardMember');
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  });
 
 router.get('/:id', async (req, res) => {
     const id = req.params.id
@@ -82,21 +115,6 @@ router.get('/:id', async (req, res) => {
     }
 })
 
-  
-
-
-
-router.get('/:id/workout', async(req,res) => {
-    const id = req.params.id
-
-    try {
-        const memberWorkout = await Member.findById(id).select('workout')
-        res.status(200).json(memberWorkout.workout)
-
-    } catch(error) {
-        res.status(500).json({error: error})
-    }
-})
 
 
   

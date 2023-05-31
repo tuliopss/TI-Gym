@@ -210,7 +210,7 @@
           <span class="close" onclick="closePopupAdd()">&times;</span>
 
           <form action="/member" method="post">
-              <label for="exerciseName" class="form-label">Nome do exercício:</label>
+              <!-- <label for="exerciseName" class="form-label">Nome do exercício:</label>
               <input type="text" class="form-control" id="exerciseName" name="workout" required>
 
               <label for="exerciseSets" class="form-label">Número de séries:</label>
@@ -218,7 +218,7 @@
 
               <label for="exerciseReps" class="form-label">Número de repetições:</label>
               <input type="number" class="form-control" id="exerciseReps" name="workout" required>
-              <button class="btn btn-primary" type="button" id="addExercise" style="margin-bottom: 30px;">Add exercise</button>
+              <button class="btn btn-primary" type="button" id="addExercise" style="margin-bottom: 30px;">Add exercise</button> -->
           <div class="mb-3">
             <label for="exampleInputMember1" class="form-label">Nome do aluno</label>
             <input
@@ -241,7 +241,19 @@
                 required
               />
             </div>
+            <div class="mb-3">
+              <label for="exampleInputAge1" class="form-label">Objetivo</label>
+              <input
+                type="text"
+                class="form-control"
+                id="exampleInputAge1"
+                name="objective"
+                autocomplete="off"
+                required
+              />
+            </div>
 
+            
             <button type="submit" class="btn btn-primary">Finish</button>
           </form>
        
@@ -275,7 +287,7 @@
               <th scope="col">Aluno</th>
               <th scope="col">Idade</th>
               <th scope="col">Id</th>
-              <th scope="col" id="col-workout">Treino</th>
+              <th scope="col">Objetivo</th>
             </tr>
           </thead>
           <tbody id="getMember">

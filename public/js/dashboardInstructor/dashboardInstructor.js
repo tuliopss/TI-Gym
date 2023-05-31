@@ -28,59 +28,6 @@ const showAllInstructors = () => {
 }
 showAllInstructors()
 
-const openPopupAdd = () => {
-    let popup = document.getElementById("myPopupAdd");
-    popup.style.display = "block";
-}
-const openPopupEdit = (instructorId) => {
-    let popup = document.getElementById("popupEdit");
-    let nameInstructor = document.getElementById('nameInstructor')
-    let salaryInstructor = document.getElementById('salaryInstructor')
-    let departmentInstructor = document.getElementById('departmentInstructor')
-
-    popup.style.display = "block";
-    
-    axios.get(`${url}/${instructorId}`)
-    .then((response) => {
-        const instructor = response.data;
-                
-        nameInstructor.value = instructor.name
-        salaryInstructor.value = instructor.salary
-        departmentInstructor.value = instructor.department
-
-        let newName = document.getElementById("nameInstructor").value;
-        let newSalary = document.getElementById("salaryInstructor").value;
-        let newDepartment = document.getElementById("departmentInstructor").value;
-
-        const updateInstructor = {
-          newName,
-          newSalary,
-          newDepartment
-        };
-        
-        // try {
-        //   // axios.patch(`${url}/edit/${instructorId}`, updateInstructor)
-        //   // .then()
-        //   if (response.status === 200) {
-        //     console.log('ID do membro :'+response.data.name+'' +response.data._id);
-        //     //window.location.href = 'http://localhost:3000/instructor/' + response.data._id
-        //   } else {
-        //     console.log('Erro ao atualizar membro:', response.data);
-        //   }
-        // //updatedInstructor(instructorId)
-        // } catch (error) {
-          
-        // }
-
-      })
-}
-
-//  <%= instructor._id %>
-const updatedInstructor = (instructorId) => {
-    
-}
-
-
 const removeInstructor = (instructorId) => {
   axios.get(`${url}/${instructorId}`)
  .then((response) => {
@@ -90,6 +37,20 @@ const removeInstructor = (instructorId) => {
      
  })
 }
+
+
+
+const openPopupAdd = () => {
+    let popup = document.getElementById("myPopupAdd");
+    popup.style.display = "block";
+}
+
+
+//  <%= instructor._id %>
+
+
+
+
 
 const closePopupEdit = () => {
     let popup = document.getElementById("popupEdit");
